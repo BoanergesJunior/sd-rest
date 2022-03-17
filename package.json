@@ -1,0 +1,25 @@
+{
+  "name": "sd-rest",
+  "version": "1.0.0",
+  "description": "Trabalho de Sistemas Distrubuídos - API Rest",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoanergesJunior/sd-rest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoanergesJunior/sd-rest/issues"
+  },
+  "homepage": "https://github.com/BoanergesJunior/sd-rest#readme",
+  "dependencies": {
+    "pg": "^8.7.3",
+    "sequelize": "^6.17.0"
+  }
+}
