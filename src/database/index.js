@@ -1,6 +1,4 @@
 import { Sequelize } from "sequelize";
+import dbConfig from "../config/database.js";
 
-export default new Sequelize(
-  'postgres://postgres@localhost:5432/sd-db',
-  { dialect: 'postgres' }
-);
+export default new Sequelize(dbConfig);
