@@ -1,12 +1,13 @@
 const dbConfig = {
-  database: 'sd',
+  dialect: 'postgres',
+  host: 'localhost',
   username: 'root',
   password: 'root',
-  host: 'localhost',
-  dialect: 'postgres',
+  database: 'sd',
   define: {
-    timestamps: true
+    timestamps: true,
+    underscored: true,
   }
 }
 
-export default dbConfig
+module.exports = dbConfig;

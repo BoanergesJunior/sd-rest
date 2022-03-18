@@ -1,4 +1,9 @@
-import { Sequelize } from "sequelize";
-import dbConfig from "../config/database.js";
+const Sequelize = require('sequelize');
+const dbConfig = require('../config/database');
+const Task = require('../models/Task');
 
-export default new Sequelize(dbConfig);
+const connection = new Sequelize(dbConfig);
+
+Task.init(connection);
+
+module.exports = connection
