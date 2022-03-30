@@ -1,22 +1,91 @@
-.App {
-  text-align: center;
-  background-color: lightslategray;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
+.App,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(247, 241, 241);
 }
 
-.todoList {
+h1 {
+  margin: 0.7em, 0, 0.7em, 0;
+  font-family: monospace;
+  font-size: 3em;
+  text-align: center;
+}
+
+p {
+  margin-right: 0.5em;
+  font-family: monospace;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+input {
+  margin: 0.5em, 0, 0.5em, 0;
+  margin-right: 0.7em;
+  font-family: monospace;
+  font-size: 1.4em;
+  text-align: center;
+  max-height: 1.7em;
+}
+
+label {
+  font-family: monospace;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+#description {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#id-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#add {
+  margin-left: 0.7em;
+}
+
+#board {
+  display: flex;
+  padding: 2em;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.toDoList {
+  margin: 1em 0 1em 1em;
+}
+
+#remove {
+  align-self: flex-end;
+  margin-top: 0.5em;
+}
+
+#card {
+  max-width: calc(100vw - 32em);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  background-color: gray;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 10px;
-  min-width: 50%;
-  text-align: left;
+  align-items: flex-start;
+  padding: 0.5em;
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+#card:hover {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+}
+
+#label-card {
+  text-align: start;
+  max-width: 300px;
+  word-wrap: break-word;
 }

@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import api from "./service/api";
 import DatePicker from "react-date-picker";
+
 function App() {
   const [tasks, setTasks] = useState([]);
   const [date, onChangeDate] = useState(new Date());
@@ -22,14 +23,12 @@ function App() {
   const addTask = () => {
     const dateISO = date.toISOString();
     api.post(`/task`, { description, limitTime: dateISO }).then((result) => {
-      console.log("ok deu");
       setTasks((oldArray) => [...oldArray, result.data]);
     });
   };
 
   const removeTask = (id) => {
     api.delete(`/task/${id}`).then((result) => {
-      console.log("ok deu");
       setTasks(tasks.filter((task) => task.id !== id));
     });
   };
@@ -50,21 +49,21 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Todo List</h1>
-      </header>
-      <div>
+      <h1>Todo List</h1>
+      <div id="id-search">
+        <p>Id: </p>
         <input
-          placeholder="id da task"
+          placeholder="Ex: 1647996704660"
           type="text"
           name="search"
           onChange={(e) => setSearchId(e.target.value)}
         />
         <input type="button" value="Pesquisar" onClick={searchTask} />
       </div>
-      <div>
+      <div id="description">
+        <p>Descrição:</p>
         <input
-          placeholder="descrição"
+          placeholder="Ex: Organizar tarefas"
           type="text"
           name="description"
           onChange={(e) => setDescription(e.target.value)}
@@ -73,38 +72,42 @@ function App() {
           style={{ backgroundColor: "white" }}
           onChange={onChangeDate}
           value={date}
+
         />
-        <input type="button" value="Adicionar" onClick={addTask} />
+        <input id="add" type="button" value="Adicionar" onClick={addTask} />
       </div>
-      {tasks.map((task) => (
-        <div className="todoList">
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              textDecoration: task.finished ? "line-through" : "none",
-            }}
-            onClick={() =>
-              taskFinished(
-                task.id,
-                task.description,
-                task.limitTime,
-                task.finished
-              )
-            }
-          >
-            <label>id: {task.id}</label>
-            <label>descricao: {task.description}</label>
-            <label>data: {new Date(task.limitTime).toLocaleString()}</label>
+      <div id="board" >
+        {tasks.map((task) => (
+          <div className="toDoList">
+            <div
+              id="card"
+              style={{
+                textDecoration: task.finished ? "line-through" : "none",
+              }}
+              onClick={() =>
+                taskFinished(
+                  task.id,
+                  task.description,
+                  task.limitTime,
+                  task.finished
+                )
+              }
+            >
+              <label> <h3>id: {task.id}</h3> </label>
+              <label id="label-card" >descrição: {task.description}</label>
+              <label>data: {new Date(task.limitTime).toLocaleString()}</label>
+              <input
+                id="remove"
+                type="button"
+                value="Remover"
+                onClick={() => removeTask(task.id)}
+              />
+            </div>
           </div>
-          <input
-            type="button"
-            value="Remover"
-            onClick={() => removeTask(task.id)}
-          />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
+
   );
 }
 
