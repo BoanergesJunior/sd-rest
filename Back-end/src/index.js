@@ -3,7 +3,7 @@ const routes = require("./routes");
 const cors = require("cors");
 require("./database");
 
-const port = 3000;
+const port = 3001;
 const app = express();
 
 app.use(express.json());
