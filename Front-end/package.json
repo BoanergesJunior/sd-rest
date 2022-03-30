@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.26.1",
+    "react-date-picker": "^8.4.0"
+  }
+}
